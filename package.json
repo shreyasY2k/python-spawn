@@ -1,0 +1,39 @@
+{
+    "name": "python-spawn",
+    "version": "1.0.0",
+    "description": "Easiest way to execute python scripts from nodejs",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shreyasY2k/python-spawn.git"
+    },
+    "keywords": [
+        "python",
+        "python-nodejs",
+        "python-spawn",
+        "node-python",
+        "nodejs-python",
+        "spawn",
+        "execute",
+        "child-process",
+        "nodejs"
+    ],
+    "author": "Shreyas Kaushik <shreyasmk.mathur@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/shreyasy2k/python-spawn/issues"
+    },
+    "homepage": "https://github.com/shreyasy2k/python-spawn#readme",
+    "devDependencies": {
+        "@types/jest": "^29.5.12",
+        "@types/node": "^20.11.7",
+        "jest": "^29.7.0",
+        "ts-jest": "^29.1.2",
+        "typescript": "^5.3.3"
+    }
+}
