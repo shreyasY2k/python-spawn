@@ -1,5 +1,6 @@
 # python-spawn
 
+<img src="./python-spawn.png" alt="python-spawn Logo" width="250" height="250">
 `python-spawn` is an npm package designed to bridge the gap between Node.js and Python, allowing Node.js applications to execute Python scripts seamlessly. This package simplifies the integration process by providing an easy-to-use interface for running Python code, functions, and scripts directly from Node.js.
 
 ## Features
