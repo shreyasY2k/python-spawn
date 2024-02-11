@@ -1,6 +1,6 @@
 {
   "name": "python-spawn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easiest way to execute python scripts from nodejs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
