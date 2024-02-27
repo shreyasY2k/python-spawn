@@ -80,31 +80,36 @@ export class PythonExecutor implements Executor {
     });
   }
 
-private generateWrapperScript(scriptPath: string, functionName?: string, args: string[] = []): string {
+private generateWrapperScript(scriptPath: string, functionName?: string, args: any[] = []): string {
   const path = require('path');
 
   // Get the absolute directory path and the script's module name
   const scriptDirectory = path.dirname(scriptPath);
   const moduleName = path.basename(scriptPath, '.py');
 
-  // Prepare the arguments string for the function call
-  const argsString = args.map(arg => JSON.stringify(arg)).join(', ');
+  // Serialize the entire arguments array as a JSON string
+  const argsJson = JSON.stringify(args).replace(/"/g, '\\"');
 
   if (functionName) {
-    // Correctly set the Python import path and import the module by name
+    // Generate the wrapper script with deserialization and correct unpacking of arguments
     return `
-import sys
+import sys, json
 sys.path.insert(0, "${scriptDirectory.replace(/\\/g, '\\\\')}")
 from ${moduleName} import ${functionName}
 
-result = ${functionName}(${argsString})
+# Deserialize the JSON string to a Python list
+args = json.loads("${argsJson}")
+
+# Unpack the list to pass each item as a separate argument
+result = ${functionName}(*args)
 print(result)
     `.trim();
   } else {
-    // Fallback to running the script directly if no function name is provided
+    // Fallback for running the script directly without a specific function
     return `import runpy\nrunpy.run_path("${scriptPath.replace(/\\/g, '\\\\')}")`;
   }
 }
+
 
 
   private generateRandomString(length: number): string {
